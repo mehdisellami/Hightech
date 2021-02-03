@@ -2,7 +2,7 @@ package hightech.dao;
 
 import java.util.List;
 
-import javax.ws.rs.PathParam;
+
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -71,10 +71,7 @@ public class GenericDao <T,P> {
 		return session.get(entity, id);
 		}
 		
-		public List<T> findArticleByCategorie(@PathParam("categorie") String categorie) {
-			return (List<T>) session.createQuery("from " + entity.getName()+" WHERE categorieArticle =:"+categorie).list();
 		
-			}
 		
 		
 		

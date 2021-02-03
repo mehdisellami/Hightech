@@ -75,14 +75,6 @@ public class HightechRessources {
 	    }
 	    
 	    
-//	    @GET
-//	    @Path("count")
-//	    @Produces(MediaType.TEXT_PLAIN)
-//	    public String getCount() {
-//	        int count = HightechDao.instance.getModel().size();
-//	        return String.valueOf(count);
-//	    }
-//	    
 	    @POST
 	    @Consumes(MediaType.APPLICATION_JSON)
 	    @Produces(MediaType.APPLICATION_JSON)
@@ -152,15 +144,6 @@ public class HightechRessources {
 
 	
 
-	    // Defines that the next path parameter after todos is
-	    // treated as a parameter and passed to the TodoResources
-	    // Allows to type http://localhost:8080/rest.todo/rest/todos/1
-	    // 1 will be treaded as parameter todo and passed to TodoResource
-//	    @Path("{article}")
-//	    @Produces( MediaType.APPLICATION_JSON )
-//	    public HightechRessource getArticlesByID(@PathParam("article") String id) {
-//	        return new HightechRessource(uriInfo, request, id);
-//	    }
 
 	   
 	    
