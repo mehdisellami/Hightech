@@ -16,8 +16,10 @@ public class ArticleDao extends GenericDao <Article,Integer> {
 		super(Article.class, session);
 		}
 
-	public List<Article> findArticleByCategorie(@PathParam("categorie") String categorie) {
-		return (List<Article>) session.createQuery("from Article a WHERE a.categorieArticle =:"+categorie).list();
+	
+	public List<Article> findArticleByCategorie(@PathParam("pram") String pram) {
+	
+		return (List<Article>) session.createQuery("from Article WHERE categorie ='" +pram+"' ").list();
 	
 		}
 

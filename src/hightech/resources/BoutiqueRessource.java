@@ -10,9 +10,9 @@ import javax.ws.rs.core.MediaType;
 import org.hibernate.Session;
 
 import hightech.config.HibernateUtil;
-import hightech.dao.ArticleDao;
+
 import hightech.dao.BoutiqueDao;
-import hightech.model.Article;
+
 import hightech.model.Boutique;
 
 @Path("/boutique")

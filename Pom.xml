@@ -2,8 +2,8 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
  
-  <groupId>hightech.main</groupId>
-  <artifactId>Hightechmain</artifactId>
+  <groupId>hightech</groupId>
+  <artifactId>hightech.main.Hightechmain</artifactId>
   <version>1</version>
   
   

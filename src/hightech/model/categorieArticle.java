@@ -12,19 +12,30 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 public class categorieArticle {
 	
+	
 	@Id
+	@Column(name = "id")
+	String id;
+	
+	
 	@Column(name = "libelle")
 	String libelleArticle;
 	
 	public categorieArticle() {
 		
 	}
-
 	public categorieArticle(String libelleArticle) {
 		super();
 		this.libelleArticle = libelleArticle;
 	}
 
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getLibelleArticle() {
 		return libelleArticle;
 	}
