@@ -34,6 +34,7 @@
       <mapping class = "hightech.model.Article"/>
       <mapping class = "hightech.model.Boutique"/>
       <mapping class = "hightech.model.categorieArticle"/>
+      <mapping class = "hightech.model.Admin"/>
       
    </session-factory>
 </hibernate-configuration>

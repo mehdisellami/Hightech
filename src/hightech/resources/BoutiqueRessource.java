@@ -23,7 +23,7 @@ public class BoutiqueRessource {
     
     @GET
     @Produces( MediaType.APPLICATION_JSON )
-    public List<Boutique> getArticles() {
+    public List<Boutique> getBoutiques() {
     	Session session = HibernateUtil.getSessionFactory().
     			openSession();
     			BoutiqueDao boutiqueDao = new BoutiqueDao(session);
