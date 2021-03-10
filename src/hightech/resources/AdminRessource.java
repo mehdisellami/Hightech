@@ -38,15 +38,19 @@ public class AdminRessource {
 	@Path("/Login/{username}/{password}")
 	@Produces( MediaType.APPLICATION_JSON )
 	@GET
-	public String loginUser(@PathParam("username") String username, @PathParam("password") String password) {
-		
+	public boolean loginUser(@PathParam("username") String username, @PathParam("password") String password) {
+		boolean rtr=false;
 		Session session = HibernateUtil.getSessionFactory().
     			openSession();
     			AdminDao adminDao = new AdminDao(session);
 		
-		
-    		adminDao.finduserByuserNameandPassword(username , password);
-		 return String.format("L'utilisateur %s est Connecté", username);
+		if(adminDao.finduserByuserNameandPassword(username , password)) {
+			rtr=true;
+
+		}
+		else { rtr=false;}
+    		return rtr;
+		 
 			
 }
 

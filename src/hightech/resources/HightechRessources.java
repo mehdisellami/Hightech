@@ -65,7 +65,9 @@ public class HightechRessources {
 	    }
 	    
 	    @GET
+	    @Consumes(MediaType.APPLICATION_JSON)
 	    @Path("/articlebycategorie/{categorie}")
+
 	    @Produces( MediaType.APPLICATION_JSON )
 	    public List<Article> getArticlesByCategorie(@PathParam("categorie") String categorie) {
 	    	Session session = HibernateUtil.getSessionFactory().

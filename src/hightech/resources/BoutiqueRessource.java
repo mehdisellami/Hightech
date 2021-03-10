@@ -22,7 +22,7 @@ public class BoutiqueRessource {
 	
     
     @GET
-    @Produces( MediaType.APPLICATION_JSON )
+    @Produces("application/json")
     public List<Boutique> getBoutiques() {
     	Session session = HibernateUtil.getSessionFactory().
     			openSession();

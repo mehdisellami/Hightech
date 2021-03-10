@@ -15,9 +15,12 @@ public class AdminDao extends GenericDao <Admin,Integer> {
 		super(Admin.class, session);
 		}
 
-	public String finduserByuserNameandPassword(@PathParam("username") String username, @PathParam("password") String password) {
+	public boolean finduserByuserNameandPassword(@PathParam("username") String username, @PathParam("password") String password) {
+		boolean rtr=false;
 		
-		return session.createQuery("from Admin WHERE username ='" +username+"'  AND password = '"+password+"' ").toString();
+		session.createQuery("from Admin WHERE username ='" +username+"'  AND password = '"+password+"' ");
+		
+		return true;
 		
 		
 	}
