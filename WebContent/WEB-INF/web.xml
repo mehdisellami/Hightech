@@ -15,5 +15,6 @@
     <servlet-name>Jersey REST Service</servlet-name>
     <url-pattern>/hightech/*</url-pattern>
   </servlet-mapping>
-
+  
+  
 </web-app>

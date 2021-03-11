@@ -108,7 +108,7 @@ public class HightechRessources {
 	    
 	    @DELETE
 	    @Path("{id}")
-	    public String DeleteArticle(@PathParam("id") String id) throws Exception {
+	    public boolean DeleteArticle(@PathParam("id") String id) throws Exception {
 	    	
 	    	Session session = HibernateUtil.getSessionFactory().
 	    			openSession(); 
@@ -116,10 +116,11 @@ public class HightechRessources {
 	    	ArticleDao x = new ArticleDao(session);
 	    	
 	    	Article s = x.findById(id);
+	    	System.out.println(s);
 	    	x.delete(s);
 	    	
 	    	
-	    	return "Article Supprimé ! ";
+	    	return true;
 	    	}
 	    
 	    @PUT
