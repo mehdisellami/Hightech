@@ -91,12 +91,12 @@ public class HightechRessources {
 	    	a.setLibelle(article.getLibelle());
 	    	a.setMarque(article.getMarque());
 	    	a.setPhoto(article.getPhoto());
-	    	
+	    	a.setCategorieArticle(article.getCategorieArticle());
+
 	    	Boutique b1 = Boutique.getInstance("1", "Hightech Boutique", "Vente tous", "8 boulvard 77777", "boutique@nanterre.fr", "0758723711");
 	    	
 	    	a.setBoutiqueArticle(b1);
 	    	a.setPrix(article.getPrix());
-	    	a.setCategorieArticle(article.getCategorieArticle());
 	    	
 	    	
 	    	ArticleDao x = new ArticleDao(session);
@@ -108,14 +108,15 @@ public class HightechRessources {
 	    
 	    @DELETE
 	    @Path("{id}")
-	    @Produces(MediaType.APPLICATION_JSON)
 	    public String DeleteArticle(@PathParam("id") String id) throws Exception {
 	    	
 	    	Session session = HibernateUtil.getSessionFactory().
 	    			openSession(); 
 	    	
 	    	ArticleDao x = new ArticleDao(session);
-	    	x.delete(x.findById(id));
+	    	
+	    	Article s = x.findById(id);
+	    	x.delete(s);
 	    	
 	    	
 	    	return "Article Supprimé ! ";

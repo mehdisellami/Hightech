@@ -1,5 +1,6 @@
 package hightech.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,11 +36,13 @@ public class Article {
 	@Column(name = "Photo")
 	private String Photo;
 	
+
+	
 	@ManyToOne (fetch = FetchType.LAZY)
 	@JoinColumn(name = "boutique")
 	private Boutique boutiqueArticle;
 	
-	@ManyToOne (fetch = FetchType.LAZY)
+	@ManyToOne (cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "categorie")
 	private categorieArticle categorieArticle;
 	
@@ -148,6 +151,11 @@ public class Article {
 	public void setCategorieArticle(categorieArticle categorieArticle) {
 		this.categorieArticle = categorieArticle;
 	}
+
+
+
+
+
 	
 	
 	
