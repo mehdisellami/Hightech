@@ -79,7 +79,7 @@ public class HightechRessources {
 	    
 	    @POST
 	    @Consumes(MediaType.APPLICATION_JSON)
-	    public Response addArticle(Article article) throws Exception {
+	    public boolean addArticle(Article article) throws Exception {
 	    	
 	    	Session session = HibernateUtil.getSessionFactory().
 	    			openSession(); 
@@ -102,10 +102,7 @@ public class HightechRessources {
 	    	x.save(a);
 	    	
 	    	
-	    	 return Response.ok()
-	                .entity(article)
-	                .header("Access-Control-Allow-Origin", "*")
-	                .build();
+	    	 return true;
 	    	}
 	    
 	    @DELETE
