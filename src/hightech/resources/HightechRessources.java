@@ -23,6 +23,7 @@ import javax.xml.bind.JAXBElement;
 
 import org.glassfish.jersey.process.internal.RequestScoped;
 import org.hibernate.Session;
+import org.hibernate.cfg.annotations.reflection.AttributeConverterDefinitionCollector;
 
 import hightech.config.HibernateUtil;
 import hightech.dao.ArticleDao;
@@ -31,123 +32,100 @@ import hightech.dao.HightechDao;
 import hightech.model.Article;
 import hightech.model.Boutique;
 
-
 @Path("/listearticle")
 public class HightechRessources {
 
-		@Context
-	    UriInfo uriInfo;
-	    @Context
-	    Request request;
-	    String id;
-	    
+	@Context
+	UriInfo uriInfo;
+	@Context
+	Request request;
+	String id;
 
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Article> getArticles() {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		ArticleDao articleDao = new ArticleDao(session);
+		return articleDao.findAll();
+	}
 
-	  
-	    
-	    @GET
-	    @Produces( MediaType.APPLICATION_JSON )
-	    public List<Article> getArticles() {
-	    	Session session = HibernateUtil.getSessionFactory().
-	    			openSession();
-	    			ArticleDao articleDao = new ArticleDao(session);
-	        return articleDao.findAll();
-	    }
-	    
-	    @GET
-	    @Path("{id}")
-	    @Produces( MediaType.APPLICATION_JSON )
-	    public Article getArticlesByID(@PathParam("id") String id) {
-	    	Session session = HibernateUtil.getSessionFactory().
-	    			openSession();
-	    			ArticleDao articleDao = new ArticleDao(session);
-	        return articleDao.findById(id);
-	    }
-	    
-	    @GET
-	    @Consumes(MediaType.APPLICATION_JSON)
-	    @Path("/articlebycategorie/{categorie}")
+	@GET
+	@Path("{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Article getArticlesByID(@PathParam("id") String id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		ArticleDao articleDao = new ArticleDao(session);
+		return articleDao.findById(id);
+	}
 
-	    @Produces( MediaType.APPLICATION_JSON )
-	    public List<Article> getArticlesByCategorie(@PathParam("categorie") String categorie) {
-	    	Session session = HibernateUtil.getSessionFactory().
-	    			openSession();
-	    			ArticleDao articleDao = new ArticleDao(session);
-	        return articleDao.findArticleByCategorie(categorie);
-	    }
-	    
-	    
-	    @POST
-	    @Consumes(MediaType.APPLICATION_JSON)
-	    public boolean addArticle(Article article) throws Exception {
-	    	
-	    	Session session = HibernateUtil.getSessionFactory().
-	    			openSession(); 
-	    	
-	    	
-	    	Article a = new Article();
-	    	a.setId(article.getId());
-	    	a.setLibelle(article.getLibelle());
-	    	a.setMarque(article.getMarque());
-	    	a.setPhoto(article.getPhoto());
-	    	a.setCategorieArticle(article.getCategorieArticle());
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/articlebycategorie/{categorie}")
 
-	    	Boutique b1 = Boutique.getInstance("1", "Hightech Boutique", "Vente tous", "8 boulvard 77777", "boutique@nanterre.fr", "0758723711");
-	    	
-	    	a.setBoutiqueArticle(b1);
-	    	a.setPrix(article.getPrix());
-	    	
-	    	
-	    	ArticleDao x = new ArticleDao(session);
-	    	x.save(a);
-	    	
-	    	
-	    	 return true;
-	    	}
-	    
-	    @DELETE
-	    @Path("{id}")
-	    public boolean DeleteArticle(@PathParam("id") String id) throws Exception {
-	    	
-	    	Session session = HibernateUtil.getSessionFactory().
-	    			openSession(); 
-	    	
-	    	ArticleDao x = new ArticleDao(session);
-	    	
-	    	Article s = x.findById(id);
-	    	System.out.println(s);
-	    	x.delete(s);
-	    	
-	    	
-	    	return true;
-	    	}
-	    
-	    @PUT
-	    @Path("{id}")
-	    @Produces(MediaType.APPLICATION_JSON)
-	    public Article updateArticle(@PathParam("id") String id , Article article) throws Exception {
-	    	
-	    	Session session = HibernateUtil.getSessionFactory().
-	    			openSession(); 
-	    	
-	    	ArticleDao x = new ArticleDao(session);
-	    	
-	    	Article a = x.findById(id);
-	    	a.setLibelle(article.getLibelle());
-	    	a.setMarque(article.getMarque());
-	    	a.setPhoto(article.getPhoto());
-	    	a.setPrix(article.getPrix());	    	
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Article> getArticlesByCategorie(@PathParam("categorie") String categorie) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		ArticleDao articleDao = new ArticleDao(session);
+		return articleDao.findArticleByCategorie(categorie);
+	}
 
-	    	x.update(a);
-	
-	    	return  a;
-	    	}
-	   
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public boolean addArticle(Article article) throws Exception {
 
+		Session session = HibernateUtil.getSessionFactory().openSession();
 
-	
+		Article a = new Article();
+		a.setId(article.getId());
+		a.setLibelle(article.getLibelle());
+		a.setMarque(article.getMarque());
+		a.setPhoto(article.getPhoto());
+		a.setCategorieArticle(article.getCategorieArticle());
 
+		Boutique b1 = Boutique.getInstance("1", "Hightech Boutique", "Vente tous", "8 boulvard 77777",
+				"boutique@nanterre.fr", "0758723711");
 
-	   
-	    
+		a.setBoutiqueArticle(b1);
+		a.setPrix(article.getPrix());
+
+		ArticleDao x = new ArticleDao(session);
+		x.save(a);
+
+		return true;
+	}
+
+	@DELETE
+	@Path("{id}")
+	public boolean DeleteArticle(@PathParam("id") String id) throws Exception {
+
+		Session session = HibernateUtil.getSessionFactory().openSession();
+
+		ArticleDao x = new ArticleDao(session);
+
+		Article s = x.findById(id);
+		System.out.println(s);
+		x.delete(s);
+
+		return true;
+	}
+
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	public Article updateArticle(Article article) throws Exception {
+
+		Session session = HibernateUtil.getSessionFactory().openSession();
+
+		ArticleDao x = new ArticleDao(session);
+
+		Article a = x.findById(article.getId());
+		a.setLibelle(article.getLibelle());
+		a.setMarque(article.getMarque());
+		a.setPhoto(article.getPhoto());
+		a.setPrix(article.getPrix());
+
+		x.update(a);
+
+		return a;
+	}
+
 }
