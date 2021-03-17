@@ -23,6 +23,7 @@ import javax.xml.bind.JAXBElement;
 
 import org.glassfish.jersey.process.internal.RequestScoped;
 import org.hibernate.Session;
+import org.hibernate.cfg.annotations.reflection.AttributeConverterDefinitionCollector;
 
 import hightech.config.HibernateUtil;
 import hightech.dao.ArticleDao;
@@ -31,8 +32,11 @@ import hightech.dao.GenericDao;
 import hightech.dao.HightechDao;
 import hightech.model.Article;
 import hightech.model.Boutique;
+<<<<<<< HEAD
 import hightech.model.Categorie;
 import hightech.model.categorieArticle;
+=======
+>>>>>>> 8d8a35bf370e579e262a9505e1c0d5dc9f32a907
 
 @Path("/listearticle")
 public class HightechRessources {
@@ -70,6 +74,7 @@ public class HightechRessources {
 		ArticleDao articleDao = new ArticleDao(session);
 		return articleDao.findArticleByCategorie(categorie);
 	}
+<<<<<<< HEAD
 	
 	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -81,6 +86,8 @@ public class HightechRessources {
 		CategorieArticleDao categorieDao = new CategorieArticleDao(session);
 		return categorieDao.findAll();
 	}
+=======
+>>>>>>> 8d8a35bf370e579e262a9505e1c0d5dc9f32a907
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -123,15 +130,24 @@ public class HightechRessources {
 	}
 
 	@PUT
+<<<<<<< HEAD
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Article updateArticle(@PathParam("id") String id, Article article) throws Exception {
+=======
+	@Produces(MediaType.APPLICATION_JSON)
+	public Article updateArticle(Article article) throws Exception {
+>>>>>>> 8d8a35bf370e579e262a9505e1c0d5dc9f32a907
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		ArticleDao x = new ArticleDao(session);
 
+<<<<<<< HEAD
 		Article a = x.findById(id);
+=======
+		Article a = x.findById(article.getId());
+>>>>>>> 8d8a35bf370e579e262a9505e1c0d5dc9f32a907
 		a.setLibelle(article.getLibelle());
 		a.setMarque(article.getMarque());
 		a.setPhoto(article.getPhoto());

@@ -7,7 +7,6 @@
 	<classpathentry kind="var" path="M2_REPO/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-core/5.4.27.Final/hibernate-core-5.4.27.Final.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/jboss/logging/jboss-logging/3.4.1.Final/jboss-logging-3.4.1.Final.jar" sourcepath="M2_REPO/org/jboss/logging/jboss-logging/3.4.1.Final/jboss-logging-3.4.1.Final-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/javassist/javassist/3.27.0-GA/javassist-3.27.0-GA.jar" sourcepath="M2_REPO/org/javassist/javassist/3.27.0-GA/javassist-3.27.0-GA-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/net/bytebuddy/byte-buddy/1.10.17/byte-buddy-1.10.17.jar"/>
 	<classpathentry kind="var" path="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
@@ -43,7 +42,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JDK1.8.0_211">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JDK1.8.0_171">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>

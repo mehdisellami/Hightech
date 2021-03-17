@@ -65,7 +65,6 @@ public class CORSFilter implements ContainerRequestFilter, ContainerResponseFilt
                 "X-Requested-With, Authorization, " +
                 "Accept-Version, Content-Type, CSRF-Token");
         }
-
         // Cross origin requests can be either simple requests
         // or preflight request. We need to add this header
         // to both type of requests. Only preflight requests
