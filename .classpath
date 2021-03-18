@@ -42,7 +42,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JDK1.8.0_171">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JDK1.8.0_211">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>

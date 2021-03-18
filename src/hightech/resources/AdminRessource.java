@@ -3,10 +3,12 @@ package hightech.resources;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.hibernate.Session;
 
@@ -35,23 +37,23 @@ public class AdminRessource {
     
 	
 	
-	@Path("/Login/{username}/{password}")
+	@Path("/Login")
 	@Produces( MediaType.APPLICATION_JSON )
-	@GET
-	public boolean loginUser(@PathParam("username") String username, @PathParam("password") String password) {
+	@POST
+	public List<Admin> loginUser(Admin admin)  throws Exception {
 		boolean rtr=false;
 		Session session = HibernateUtil.getSessionFactory().
     			openSession();
     			AdminDao adminDao = new AdminDao(session);
 		
-		if(adminDao.finduserByuserNameandPassword(username , password)) {
-			rtr=true;
-
-		}
-		else { rtr=false;}
-    		return rtr;
-		 
-			
-}
+    			if (adminDao.finduserByuserNameandPassword(admin).isEmpty()) {
+    			 throw new Exception("Sorry username or password dos not existe");
+    			}
+    			else 
+    			{    	return	 adminDao.finduserByuserNameandPassword(admin); 
+    			
+    			 
+    			}
+    			}
 
 }

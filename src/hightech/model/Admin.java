@@ -50,7 +50,7 @@ public class Admin {
 
 
 
-    public String getIdprivate() {
+	public String getIdprivate() {
 		return idprivate;
 	}
 
@@ -69,39 +69,78 @@ public class Admin {
 
 
 	public String getNomAdmin() {
-        return nomAdmin;
-    }
+		return nomAdmin;
+	}
 
 
 
-    public void setNomAdmin(String nomAdmin) {
-        this.nomAdmin = nomAdmin;
-    }
 
 
 
-    public String getPrenomAdmin() {
-        return prenomAdmin;
-    }
+	public void setNomAdmin(String nomAdmin) {
+		this.nomAdmin = nomAdmin;
+	}
 
 
 
-    public void setPrenomAdmin(String prenomAdmin) {
-        this.prenomAdmin = prenomAdmin;
-    }
 
 
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPrenomAdmin() {
+		return prenomAdmin;
+	}
 
 
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
+
+
+
+	public void setPrenomAdmin(String prenomAdmin) {
+		this.prenomAdmin = prenomAdmin;
+	}
+
+
+
+
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
+
+
+
+
     
 }
   
